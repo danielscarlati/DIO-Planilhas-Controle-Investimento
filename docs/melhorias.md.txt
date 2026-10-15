@@ -1,0 +1,76 @@
+Aqui está o **Plano de Melhoria para o Simulador de FIIs**, focado em **Recursos Inteligentes do Excel**. 
+
+Este plano transforma uma planilha de cálculo simples em uma ferramenta analítica de tomada de decisão.
+
+---
+
+# 📋 Plano de Melhoria: Simulador de FIIs Inteligente
+
+## 🎯 Objetivo
+Evoluir o simulador atual para permitir análises dinâmicas de sensibilidade, cálculo reverso de metas financeiras e comparativo com alternativas de mercado (benchmark).
+
+---
+
+## 📌 Etapa 1: Análise de Sensibilidade e Cenários
+Em investimentos de renda variável, rentabilidade passada não é garantia de retorno futuro. A planilha deve mostrar como o patrimônio se comporta sob diferentes taxas.
+
+### 1.1 Cenários Predefinidos
+Crie uma área com 3 cenários de rendimento mensal médio:
+* **Conservador:** 0,60% a.m. (cenário de queda nos proventos ou vacância maior)
+* **Moderado (Base):** 0,80% a.m. (média histórica de fundos estáveis)
+* **Otimista:** 1,00% a.m. (cenário favorável de mercado)
+
+### 1.2 Implementação Técnica no Excel
+* **Fórmula principal:** Utilize a função `VF` (Valor Futuro) para cada cenário:
+  ```excel
+  =VF(taxa; prazo_em_meses; -aporte_mensal)
+  ```
+* **Opção Avançada (Tabela de Dados):**
+  1. Monte uma matriz cruzando **Aporte Mensal** (nas linhas: R$ 300, R$ 500, R$ 1.000) com a **Taxa Mensal** (nas colunas: 0,6%, 0,8%, 1,0%).
+  2. Selecione a matriz e vá em: **Dados > Teste de Hipóteses > Tabela de Dados**.
+  3. Aponte a célula de entrada da linha para o aporte e a da coluna para a taxa. O Excel preenche todas as projeções automaticamente.
+
+---
+
+## 📌 Etapa 2: Simulador Inverso (Meta de Renda Passiva)
+Muitos investidores preferem pensar no destino final: *"Quero viver de renda recebendo R$ X por mês"*.
+
+### 2.1 Lógica dos Cálculos
+1. **Patrimônio Necessário para a Renda Desejada:**
+   $$\text{Patrimônio Alvo} = \frac{\text{Renda Mensal Desejada}}{\text{Taxa Mensal Estimada}}$$
+   *Exemplo:* Para receber R$ 2.500/mês a 0,8% a.m., precisa-se de R$ 312.500 acumulados.
+
+2. **Cálculo do Aporte Necessário (Função `PGTO`):**
+   Descobre quanto poupar por mês para atingir o patrimônio alvo no prazo desejado:
+   ```excel
+   =PGTO(taxa_mensal; anos * 12; 0; -patrimonio_alvo)
+   ```
+
+3. **Cálculo do Prazo Necessário (Função `NPER`):**
+   Descobre quantos meses/anos levará se o aporte for fixo:
+   ```excel
+   =NPER(taxa_mensal; -aporte_mensal; 0; patrimonio_alvo) / 12
+   ```
+
+---
+
+## 📌 Etapa 3: Comparativo de Benchmark (FIIs vs. Renda Fixa)
+Para provar se o risco dos FIIs compensa, o simulador deve comparar o retorno com o investimento mais comum do brasileiro: **Renda Fixa / CDI**.
+
+### 3.1 Regras de Comparação
+* **FIIs:** Dividendos para pessoa física são historicamente isentos de IR.
+* **CDI Líquido:** Investimentos atrelados ao CDI pagam Imposto de Renda pela tabela regressiva (15% para prazos acima de 2 anos).
+* **Taxa Equivalente do CDI:** Se o CDI anual for 10% a.a., o CDI líquido de longo prazo é:
+  $$10\% \times (1 - 0,15) = 8,5\% \text{ ao ano}$$
+  Converta para taxa mensal equivalente:
+  ```excel
+  =(1 + taxa_anual_liquida)^(1/12) - 1
+  ```
+
+### 3.2 Indicador de Ganho Excedente
+Crie uma métrica que mostre a diferença de patrimônio acumulado:
+$$\text{Diferença (R\$)} = \text{Patrimônio Final em FIIs} - \text{Patrimônio Final no CDI}$$
+Isso demonstra de forma clara o valor gerado pela estratégia escolhida.
+
+---
+
