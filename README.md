@@ -118,12 +118,15 @@ A ferramenta original do Expert tratava-se de um modelo linear de projeção sim
 ## 🛠️ Resumo das Fórmulas-Chave Utilizadas
 
 * **Valor Futuro (Patrimônio):**
-  \[VF = \text{VF}(\text{taxa}; \text{anos} \times 12; -\text{aporte})\]
+  `VF = VF(taxa; anos * 12; -aporte)`
+
 * **Dividendo Mensal:**
-  \[\text{Dividendo} = \text{Patrimônio Acumulado} \times \text{Taxa Mensal}\]
+  `Dividendo = Patrimônio Acumulado * Taxa Mensal`
+
 * **Taxa Mensal Equivalente do CDI Líquido:**
-  \[\text{Taxa Mensal CDI} = \left(1 + \text{CDI Anual} \times (1 - \text{Alíquota IR})\right)^{1/12} - 1\]
+  `Taxa Mensal CDI = (1 + CDI Anual * (1 - Alíquota IR))^(1/12) - 1`
+
 * **Aporte Mensal para Meta (PGTO):**
-  \[\text{Aporte Necessário} = \text{PGTO}\left(\text{taxa}; \text{anos} \times 12; 0; -\left(\frac{\text{Renda Desejada}}{\text{taxa}}\right)\right)\]
+  `Aporte Necessário = PGTO(taxa; anos * 12; 0; -(Renda Desejada / taxa))`
 
 
