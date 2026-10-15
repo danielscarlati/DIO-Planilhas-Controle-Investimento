@@ -2,7 +2,7 @@
 
 
 
-\# 📊 Simulador Inteligente de Investimento em FIIs (Fundos Imobiliários)
+# 📊 Simulador Inteligente de Investimento em FIIs (Fundos Imobiliários)
 
 
 
@@ -10,11 +10,10 @@ Este projeto consiste em uma ferramenta analítica e preditiva desenvolvida no M
 
 
 
-\---
+---
 
 
-
-\## 1. As Perguntas que a Ferramenta Responde (e Onde Aparece Cada Resposta)
+## 1. As Perguntas que a Ferramenta Responde (e Onde Aparece Cada Resposta)
 
 
 
@@ -22,7 +21,7 @@ A ferramenta foi estruturada para solucionar tanto a abordagem direta (projeçã
 
 
 
-\### 🎯 Perguntas Centrais de Negócio
+### 🎯 Perguntas Centrais de Negócio
 
 
 
@@ -42,11 +41,11 @@ A ferramenta foi estruturada para solucionar tanto a abordagem direta (projeçã
 
 
 
-\---
+---
 
 
 
-\### 🔍 Perguntas Estratégicas Adicionais
+### 🔍 Perguntas Estratégicas Adicionais
 
 
 
@@ -70,15 +69,15 @@ A ferramenta foi estruturada para solucionar tanto a abordagem direta (projeçã
 
 
 
-\---
+---
 
 
 
-\## 2. Como o VF e o PROCV Entram nos Cálculos
+## 2. Como o VF e o PROCV Entram nos Cálculos
 
 
 
-\### 📈 A Função `VF` (Valor Futuro)
+### 📈 A Função `VF` (Valor Futuro)
 
 
 
@@ -120,11 +119,11 @@ A função financeira `VF` projeta o crescimento do patrimônio sob o regime de 
 
 
 
-\---
+---
 
 
 
-\### 🔎 A Função `PROCV` com Chave Composta
+### 🔎 A Função `PROCV` com Chave Composta
 
 
 
@@ -144,11 +143,11 @@ A função `PROCV` automatiza a alocação de recursos buscando os percentuais d
 
 &#x20; =PROCV(perfil; cenários perfil; 2; FALSE)
 
-\---
+---
 
 
 
-\## 3. O que Você Mudou em Relação à Ferramenta do Expert
+## 3. O que Você Mudou em Relação à Ferramenta do Expert
 
 
 
@@ -196,11 +195,11 @@ A ferramenta original do Expert tratava-se de um modelo linear de projeção sim
 
 
 
-\---
+---
 
 
 
-\## 🛠️ Resumo das Fórmulas-Chave Utilizadas
+## 🛠️ Resumo das Fórmulas-Chave Utilizadas
 
 
 
